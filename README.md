@@ -62,7 +62,7 @@ $ docker-compose -f faker-producer/docker-compose.yml up -d      # start the pro
 $ docker-compose -f custom-api-producer/docker-compose.yml up -d # start the producer for AQI API
 ```
 
-## Starting Producers
+## Starting Consumers
 To check if "flowing" correctly, start consumers
 ```bash
 $ docker-compose -f consumers/docker-compose.yml up -d        # start the all consumers
@@ -158,3 +158,5 @@ $\Longrightarrow$ **This indicated a higher data collecting quality from the Par
     <img src="./assets/temp-humid-aqi-compare.png" alt="Weather records comparison between 2 cities">
     <em>Temperature - Humidity - AQI relations of the two cities</em>
 </div>
+
+The set of plots above shows the relation between Temperature, Humidity, and AQI of Paris and Hanoi. Although Paris has higher humidity, which normaly would incrase AQI, it has a significantly lower AQI when compared to Hanoi. Temperature does not seem to affect the AQI.
