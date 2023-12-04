@@ -2,6 +2,8 @@
 
 by Tran Nam Thai - s3891890
 
+Available on [Github](https://github.com/klenathan/docker-cassandra-pipeline).
+
 ---
 
 # Prerequisites
