@@ -46,6 +46,9 @@ def run():
         current_weather = asyncio.run(get_weather(city=location))
         current_weather['location'] = location
         now = time.localtime()
+        if not isinstance(current_weather['description'], str):
+            current_weather['description'] = current_weather['description'][0]
+        
         current_weather['report_time'] = time.strftime(
             "%Y-%m-%d %H:%M:%S", now)
         current_weather = current_weather.to_json(orient="records")

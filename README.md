@@ -74,13 +74,13 @@ First login into Cassandra's container with the following command or open a new 
 ```bash
 $ docker exec -it cassandra bash
 ```
-Once loged in, bring up cqlsh with this command and query twitterdata and weatherreport tables like this:
+Once loged in, bring up cqlsh with this command and query from tables like this:
 ```bash
 $ cqlsh --cqlversion=3.4.4 127.0.0.1 # make sure you use the correct cqlversion
 
 cqlsh> use kafkapipeline; # keyspace name
 
-describe tables; # -> this should print out all the tables
+describe tables; # -> this should print out all the tables available
 
 cqlsh:kafkapipeline> select * from weatherreport;
 
@@ -112,7 +112,7 @@ $ docker-compose -f owm-producer/docker-compose.yml down         # stop open wea
 
 $ docker-compose -f custom-api-producer/docker-compose.yml down  # stop AQI producer
 
-$ docker-compose -f  faker-producer/docker-compose.yml down      # stop faker
+$ docker-compose -f faker-producer/docker-compose.yml down       # stop faker
 
 $ docker-compose -f kafka/docker-compose.yml down                # stop zookeeper, broker, kafka-manager and kafka-connect services
 
@@ -146,13 +146,15 @@ $ docker system prune -a # basically remove everything
 Below are analysis I got from the data pipeline. The data are recorded from 2 cities: **Hanoi** and **Paris**.
 
 <div style="display: flex; flex-direction: column; align-items: center">
-    <img src="./city-compare.png" alt="Weather records comparison between 2 cities">
+    <img src="./assets/city-compare.png" alt="Weather records comparison between 2 cities">
     <em>Weather records comparison between 2 cities</em>
 </div>
 
+From the two set of plots above describe weather records comparison between 2 cities. I will focus on the first one (on the left). The recorded data are from 2 differents countries (Vietnam and France) with different recorders. We can clearly see how the French record, in terms of data, has a better quality. Hanoi's record has the min, max, current at the same amout throughout the record time. While Paris's record shows how measurement uncertainty are accounted in the calculation. They calculate the range of temperature rather than just output a number. 
 
+$\Longrightarrow$ **This indicated a higher data collecting quality from the Paris's station compares to Hanoi.**
 
 <div style="display: flex; flex-direction: column; align-items: center">
-    <img src="./temp-humid-aqi-compare.png" alt="Weather records comparison between 2 cities">
+    <img src="./assets/temp-humid-aqi-compare.png" alt="Weather records comparison between 2 cities">
     <em>Temperature - Humidity - AQI relations of the two cities</em>
 </div>
