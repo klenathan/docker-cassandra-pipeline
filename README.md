@@ -1,5 +1,7 @@
 # ASSIGNMENT #1: Data Pipeline with Docker
 
+by Tran Nam Thai - s3891890
+
 ---
 
 # Prerequisites
